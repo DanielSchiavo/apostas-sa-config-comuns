@@ -13,11 +13,6 @@ CREATE TABLE usuarios (
 	data_nascimento DATE NOT NULL,
 	data_criacao_conta TIMESTAMP NOT NULL,
 	saldo NUMERIC(10,2) NOT NULL,
-	foto VARCHAR(100),
-	instagram VARCHAR(50),
-	facebook VARCHAR(50),
-	twitter VARCHAR(50),
-	frase VARCHAR(200),
 	confirmou_identidade BOOLEAN,
 	PRIMARY KEY (id)
 );

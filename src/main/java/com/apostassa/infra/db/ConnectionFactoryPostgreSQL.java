@@ -1,4 +1,4 @@
-package com.apostassa.infra;
+package com.apostassa.infra.db;
 
 import com.apostassa.infra.util.config.Config;
 import com.apostassa.infra.util.config.ConfigReader;
@@ -7,17 +7,15 @@ import com.zaxxer.hikari.HikariDataSource;
 
 
 public class ConnectionFactoryPostgreSQL {
-	
-    private static HikariDataSource dataSource;
 
-    public static void initialize() {
+	public HikariDataSource initialize() {
 		Config config = new ConfigReader().getConfig();
-		
+
 		String url = config.getDatabase().getUrl();
 		String username = config.getDatabase().getUsername();
 		String password = config.getDatabase().getPassword();
 		String driver = config.getDatabase().getDriver();
-		
+
 		HikariConfig hikariConfig = new HikariConfig();
 		hikariConfig.setJdbcUrl(url);
 		hikariConfig.setUsername(username);
@@ -28,11 +26,7 @@ public class ConnectionFactoryPostgreSQL {
 		hikariConfig.setIdleTimeout(10000);
 		hikariConfig.setConnectionTimeout(30000);
 		hikariConfig.setAutoCommit(false);
-		
-		dataSource = new HikariDataSource(hikariConfig);
-    }
-    
-	public static HikariDataSource getConnectionPool() {
-		return dataSource;
+
+		return new HikariDataSource(hikariConfig);
 	}
 }

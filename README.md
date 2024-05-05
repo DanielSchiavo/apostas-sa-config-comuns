@@ -1,0 +1,1 @@
+# apostas-sa-config-comuns

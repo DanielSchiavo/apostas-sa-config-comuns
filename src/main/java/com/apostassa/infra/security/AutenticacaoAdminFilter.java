@@ -16,7 +16,22 @@ import java.util.Map;
 					"CategoriaAdminServlet",
 					
 					//SUB - CATEGORIA
-					"SubCategoriaAdminServlet"})
+					"SubCategoriaAdminServlet",
+
+					//MAIN-JOGO
+					"MainJogoAdminServlet",
+
+					//JOGO
+					"JogoAdminServlet",
+
+					//ROLE-JOGO
+					"RoleJogoAdminServlet",
+
+					//JOGO-JUNCAO-ROLE
+					"JogoJuncaoRoleAdminServlet",
+
+					//MAPA-JOGO
+					"MapaJogoAdminServlet"})
 public class AutenticacaoAdminFilter implements Filter {
 
 	@Override

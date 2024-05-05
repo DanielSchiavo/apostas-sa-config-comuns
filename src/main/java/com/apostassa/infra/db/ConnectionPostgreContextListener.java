@@ -1,13 +1,12 @@
-package com.apostassa.infra;
-
-import javax.sql.DataSource;
+package com.apostassa.infra.db;
 
 import com.zaxxer.hikari.HikariDataSource;
-
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
+
+import javax.sql.DataSource;
 
 @WebListener
 public class ConnectionPostgreContextListener implements ServletContextListener {
@@ -15,10 +14,8 @@ public class ConnectionPostgreContextListener implements ServletContextListener 
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
 		ServletContext servletContext = event.getServletContext();
-		DataSource pool = (DataSource) servletContext.getAttribute("my-pool");
+		DataSource pool = new ConnectionFactoryPostgreSQL().initialize();
 
-		ConnectionFactoryPostgreSQL.initialize();
-		pool = ConnectionFactoryPostgreSQL.getConnectionPool();
 		servletContext.setAttribute("my-pool", pool);
 	}
 

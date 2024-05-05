@@ -4,10 +4,23 @@ CREATE TABLE jogos (
 	icone VARCHAR(100) NOT NULL,
 	descricao TEXT NOT NULL,
 	imagem VARCHAR(100) NOT NULL,
-	numero_eventos BIGSERIAL NOT NULL,
+    data_e_hora_criacao TIMESTAMP NOT NULL ,
+    criado_por_usuario_id CHAR(36) NOT NULL,
+    data_e_hora_ultima_alteracao TIMESTAMP,
+    alterado_por_usuario_id CHAR(36),
+	numero_eventos BIGINT,
+    numero_apostas BIGINT,
+    total_reais_movimentado NUMERIC(24,3),
+    total_dolar_movimentado NUMERIC(24,3),
+    total_euro_movimentado NUMERIC(24,3),
+    total_bitcoin_movimentado NUMERIC(24,3),
+    ativo BOOLEAN NOT NULL,
 	sub_categoria_id CHAR(36) NOT NULL,
-	ativo BOOLEAN NOT NULL,
 	PRIMARY KEY (id),
+    FOREIGN KEY (criado_por_usuario_id)
+        REFERENCES usuarios (id),
+    FOREIGN KEY (alterado_por_usuario_id)
+        REFERENCES usuarios (id),
 	FOREIGN KEY (sub_categoria_id)
 		REFERENCES sub_categorias (id)
 );

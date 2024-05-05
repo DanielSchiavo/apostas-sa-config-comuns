@@ -14,8 +14,10 @@ import java.util.Map;
 					//USUARIO
 					"AlterarSenhaUserServlet",
 					"DadosPessoaisUserServlet", 
-					"PaginaInicialUserServlet", 
-					"PerfilJogadorUserServlet",
+					"PaginaInicialUserServlet",
+
+					//USUARIO-PERFIL-PARTICIPANTE
+					"PerfilParticipanteUserServlet",
 					})
 public class AutenticacaoUserFilter implements Filter {
 
@@ -38,7 +40,7 @@ public class AutenticacaoUserFilter implements Filter {
 						String usuarioId = allClaims.get("subject");
 						String stringRole = allClaims.get("role");
 						String email = allClaims.get("email");
-						
+
 						if (stringRole.contains("Null claim")) {
 							stringRole = null;
 						}

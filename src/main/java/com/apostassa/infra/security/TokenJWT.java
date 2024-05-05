@@ -1,7 +1,7 @@
 package com.apostassa.infra.security;
 
 import com.apostassa.aplicacao.Token;
-import com.apostassa.dominio.usuario.Role;
+import com.apostassa.dominio.usuario.RoleUsuario;
 import com.apostassa.dominio.usuario.Usuario;
 import com.apostassa.dominio.usuario.exceptions.AutenticacaoException;
 import com.auth0.jwt.JWT;
@@ -29,7 +29,7 @@ public class TokenJWT implements Token {
 		try {
 			String role = null;
 			if (usuario.getRoles().size() == 1) {
-				Role roleObj = usuario.getRoles().stream().findFirst().get();
+				RoleUsuario roleObj = usuario.getRoles().stream().findFirst().get();
 				
 				role = roleObj.getRole().toString();
 			}
@@ -37,7 +37,7 @@ public class TokenJWT implements Token {
 		    String token = JWT.create()
 						        .withIssuer(issuer)
 						        .withSubject(usuario.getId().toString())
-						        .withClaim("email", usuario.getEmail())
+						        .withClaim("email", usuario.getEmail().getEndereco())
 						        .withClaim("role", role)
 						        .withExpiresAt(expirationDate())
 						        .sign(algorithm);
