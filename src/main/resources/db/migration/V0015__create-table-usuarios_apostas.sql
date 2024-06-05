@@ -1,6 +1,6 @@
 CREATE TABLE usuarios_apostas (
 	id CHAR(36),
-	usuario_id CHAR(36) NOT NULL,
+	usuario_cpf CHAR(14) NOT NULL,
 	evento_id CHAR(36) NOT NULL,
 	equipe_evento_apostada_id CHAR(36) NOT NULL,
 	tipo_aposta VARCHAR(30) NOT NULL,

@@ -1,6 +1,5 @@
 CREATE TABLE usuarios (
-	id CHAR(36),
-	cpf CHAR(14) NOT NULL UNIQUE,
+	cpf CHAR(14),
 	rg VARCHAR(10) UNIQUE,
 	imagem_comprovante_identidade_frente VARCHAR(100) UNIQUE,
 	imagem_comprovante_identidade_verso VARCHAR(100) UNIQUE,

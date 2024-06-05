@@ -36,8 +36,8 @@ public class TokenJWT implements Token {
 			
 		    String token = JWT.create()
 						        .withIssuer(issuer)
-						        .withSubject(usuario.getId().toString())
-						        .withClaim("email", usuario.getEmail().getEndereco())
+						        .withSubject(usuario.getCpf())
+						        .withClaim("email", usuario.getEmail())
 						        .withClaim("role", role)
 						        .withExpiresAt(expirationDate())
 						        .sign(algorithm);

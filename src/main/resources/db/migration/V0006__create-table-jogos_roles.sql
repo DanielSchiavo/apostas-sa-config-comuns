@@ -4,10 +4,10 @@ CREATE TABLE jogos_roles (
 	descricao VARCHAR(200) NOT NULL,
 	icone VARCHAR(100) NOT NULL,
     data_e_hora_criacao TIMESTAMP NOT NULL,
-    criado_por_usuario_id CHAR(36) NOT NULL,
+    criado_por_usuario_cpf CHAR(36) NOT NULL,
     data_e_hora_ultima_alteracao TIMESTAMP,
     alterado_por_usuario_id CHAR(36),
 	PRIMARY KEY (id),
-    FOREIGN KEY (criado_por_usuario_id)
-        REFERENCES usuarios (id)
+    FOREIGN KEY (criado_por_usuario_cpf)
+        REFERENCES usuarios (cpf)
 );

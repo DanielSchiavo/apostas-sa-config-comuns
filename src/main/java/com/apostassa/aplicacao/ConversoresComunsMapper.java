@@ -12,6 +12,6 @@ public interface ConversoresComunsMapper {
 
     @Named(value = "converterStringEmUUID")
     default UUID converterStringEmUUID(String value) {
-        return (value == null) ? null : UUID.fromString(value);
+        return UUID.fromString(value);
     }
 }

@@ -1,8 +1,8 @@
 CREATE TABLE usuarios_roles (
-	usuario_id CHAR(36) NOT NULL,
+	usuario_cpf CHAR(14) NOT NULL,
 	data_atribuicao TIMESTAMP NOT NULL,
 	role VARCHAR(20) NOT NULL,
-	PRIMARY KEY (usuario_id),
-	FOREIGN KEY (usuario_id)
-		REFERENCES usuarios (id)
+	PRIMARY KEY (usuario_cpf),
+	FOREIGN KEY (usuario_cpf)
+		REFERENCES usuarios (cpf)
 );
